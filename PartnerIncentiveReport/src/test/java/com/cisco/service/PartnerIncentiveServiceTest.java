@@ -34,7 +34,7 @@ public class PartnerIncentiveServiceTest {
 		Form form=new Form();
 		form.setYear("FY14");
 		form.setQuarter("Q1");
-		form.setClawbackPeriod(1);
+		//form.setClawbackPeriod(1);
 		ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 		PartnerIncentiveService pis = (PartnerIncentiveService) context.getBean("partner_incentive_service");
 		String al=pis.getSQL(form);

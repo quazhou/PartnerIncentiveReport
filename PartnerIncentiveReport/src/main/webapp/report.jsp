@@ -92,8 +92,7 @@
                 <td></td>
                 <td></td>
                 <td></td>
-                <td>
-                <a href="javascript:void(0)" class="easyui-linkbutton" onclick="alert($('#f1').combobox('getValue'))">GetValue</a></td>
+                <td></td>
                 <td> 
                 <!--  <input type="submit" value="Submit"></input> -->
                 
