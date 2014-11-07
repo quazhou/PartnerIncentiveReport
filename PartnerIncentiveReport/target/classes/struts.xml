@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	
+	<!-- Add packages here -->
+	<constant name="struts.devMode" value="true" /> 
+	<constant name="struts.objectFatocry" value="spring"/>
+	<package name="default" extends="struts-default">
+	
+		<global-results>
+    		<result name="error">/error.jsp</result>
+    	</global-results>
+		<global-exception-mappings>
+    		<exception-mapping result="error" exception="java.lang.Exception"></exception-mapping>
+    	</global-exception-mappings>
+    </package>
+	
+	 <package name="report" namespace="/report" extends="default" >
+   		
+   	   <default-action-ref name="index" />
+   		
+   	   <action name="index">
+       		<result>/index.jsp</result>
+       </action>
+   		
+       <action name="firstaction" class="firstaction">
+       		<result>/table.jsp</result>
+       </action>
+       <action name="partner_incentive">
+       		<result>/report.jsp</result>
+       </action>
+       
+       <action name="partner_incentive_form" class="partner_incentive_form" method="execute">
+       		<result>/error.jsp</result>
+       </action>
+       
+    </package>
+    
+    <package name="json" namespace="/data" extends="json-default">
+    	<action name="jsontest" class="JsonJqueryStruts2Action">
+    		<!-- 返回单个值的result -->
+    		<result name="message" type="json"></result>
+    		<!-- 返回UserInfo对象的 -->
+    		<result name="userInfo" type="json"></result>
+    		<!-- 返回List对象的 -->
+    		<result name="list" type="json"></result>
+    		<!-- 返回Map对象的 -->
+    		<result name="map" type="json"></result>
+    	</action>
+    	
+    	 <action name="partner_incentive" class="partner_incentive" method="load">
+       		<result name="load" type="json">
+       			<param name="root">rows</param>
+       		</result>
+         </action>
+         
+         <action name="partner_incentive_filter" class="partner_incentive_filter" method="load">
+       		<result name="load" type="json">
+       			<param name="root">values</param>
+       		</result>
+       	 </action>
+    </package>
+	
+</struts>
