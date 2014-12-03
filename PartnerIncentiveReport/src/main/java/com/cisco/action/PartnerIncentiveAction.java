@@ -15,7 +15,8 @@ import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.cisco.service.PartnerIncentiveService;
-import com.cisco.model.*;
+import com.cisco.dto.Form;
+import com.cisco.model.PartnerResult;
 
 @Controller("partner_incentive")
 @Scope("prototype")

@@ -11,7 +11,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.cisco.action.PartnerIncentiveAction;
-import com.cisco.model.Form;
+import com.cisco.dto.Form;
 import com.cisco.model.PartnerResult;
 
 public class PartnerIncentiveServiceTest {

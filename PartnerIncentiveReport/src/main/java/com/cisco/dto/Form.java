@@ -1,4 +1,4 @@
-package com.cisco.model;
+package com.cisco.dto;
 
 public class Form {
 	
@@ -11,7 +11,7 @@ public class Form {
 	private Double lifeRebatePercentageThreshold=0.9;
 	private Integer lifeRebateTermMultiplier=6;
 	private Double lifeRebatePercentage=0.07;
-	public int getClawbackPeriod() {
+	public Integer getClawbackPeriod() {
 		return clawbackPeriod;
 	}
 	public Double getIarrPartnerRebateThreshold() {

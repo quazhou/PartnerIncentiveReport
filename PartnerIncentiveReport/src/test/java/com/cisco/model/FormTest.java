@@ -8,6 +8,8 @@ import java.util.Date;
 
 import org.junit.Test;
 
+import com.cisco.dto.Form;
+
 public class FormTest {
 	
 	@Test
