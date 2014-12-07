@@ -31,6 +31,7 @@
 		$("#btn1").click(function () {
 			alert($('f1').combobox('getValue'));
 		})
+		
 	</script>
 	
 	
@@ -44,47 +45,44 @@
     		<form id="ff" method="get">
     		<table>
             <tr>
-                <td>Quarter:</td>
-                <td><select id="f1" class="easyui-combobox" name="quarter" style="width:200px;" 
-    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=quarter'"></select></td>
-            	
+                
             	<td>Period Fiscal Year:</td>
                 <td><select id="f2" class="easyui-combobox" name="year"  style="width:200px;"
     	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=year'"></select></td>
             
+            	<td>Quarter:</td>
+                <td><select id="f1" class="easyui-combobox" name="quarter" style="width:200px;" 
+    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=quarter'"></select></td>
+            	
             	<td>IARR Rebate Clawback Period (Days):</td>
                 <td><select id="f3" class="easyui-combobox" name="clawbackPeriod" style="width:200px;" 
-    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=clawback_period'"></select></td>
+    	data-options="value:'90'"></select></td>
             
             </tr>
             
             <tr>
                 <td>IARR Rebate Term Multiplier (Months):</td>
                 <td><select id="f4" class="easyui-combobox" name="iarrRebateTermMultiplier" style="width:200px;" 
-    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=iarr_rebate_term_multiplier'"></select></td>
+    	data-options="value:'12'"></select></td>
             	
             	<td>IARR Rebate Percentage (Value from 0 to 1):</td>
                 <td><select id="f5" class="easyui-combobox" name="iarrRebatePercentage"  style="width:200px;"
-    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=iarr_rebate_percentage'"></select></td>
+    	data-options="value:'0.25'"></select></td>
             
-            	<td>IARR Partner Rebate Threshold (Currency Unit):</td>
-                <td><select id="f6" class="easyui-combobox" name="iarrPartnerRebateThreshold" style="width:200px;" 
-    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=iarr_partner_rebate_threshold'"></select></td>
+            	<td>Lifecycle Rebate Percentage Threshold (Value from 0 to 1):</td>
+                <td><select id="f7" class="easyui-combobox" name="lifeRebatePercentageThreshold" style="width:200px;" 
+    	data-options="value:'0.9'"></select></td>
             
             </tr>
             
-            <tr>
-                <td>Lifecycle Rebate Percentage Threshold (Value from 0 to 1):</td>
-                <td><select id="f7" class="easyui-combobox" name="lifeRebatePercentageThreshold" style="width:200px;" 
-    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=life_rebate_percentage_threshold'"></select></td>
-            	
+            <tr>            	
             	<td>Lifecycle Rebate Term Multiplier (Months):</td>
                 <td><select id="f8" class="easyui-combobox" name="lifeRebateTermMultiplier"  style="width:200px;"
-    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=life_rebate_term_multiplier'"></select></td>
+    	data-options="value:'6'"></select></td>
             
             	<td>Lifecycle Rebate Percentage (Value from 0 to 1):</td>
                 <td><select id="f9" class="easyui-combobox" name="lifeRebatePercentage" style="width:200px;" 
-    	data-options="textField:'val',valueField:'val',url:'<%=path %>/data/partner_incentive_filter?filterName=life_rebate_percentage'"></select></td>
+    	data-options="value:'0.07'"></select></td>
             
             </tr>
             <tr>
@@ -107,54 +105,49 @@
 	
 	<br/>
     
-    <table id="dg" title="Partner Incentive Report" class="easyui-datagrid" style="width:6900px;height:250px"
-            url="<%=path %>/data/partner_incentive!load" pagination="true"
-            rownumbers="true" fitColumns="true" singleSelect="true" method="get">
+    <table id="dg" title="Partner Incentive Report" class="easyui-datagrid" style="width:5800px;height:250px"
+            url="<%=path %>/data/partner_incentive!load" 
+            fitColumns="true" singleSelect="true" method="get" view="scrollview">
         <thead>
             <tr>
-                <th field="quarter" >Rebate Period Quarters</th>
-                <th field="year" >Period Fiscal Year</th>
-                <th field="clawbackPeriod" >IARR Rebate Clawback Period</th>
-                <th field="iarrRebateTermMultiplier" >IARR Rebate Term Multiplier</th>
-				<th field="iarrRebatePercentage" >IARR Rebate Percentage (Value from 0 to f1)</th>
-				<th field="iarrPartnerRebateThreshold" >IARR Partner Rebate Threshold(Currency Unit)</th>
-				<th field="lifeRebatePercentageThreshold" >Lifecycle Rebate Percentage Threshold(Value from 0 to 1)</th>
-				<th field="lifeRebateTermMultiplier" >Lifecycle Rebate Term Multiplier(Months)</th>
-				<th field="lifeRebatePercentage" >Lifecycle Rebate Percentage (Value from 0 to 1)</th>
-				<th field="email" >Partner Name</th>
+				<th field="partnerName" >Partner Name</th>
 				<th field="email">Lifecycle Partner Flag</th>
-				<th field="email">PDB¡¡BE GEO ID</th>
-				<th field="email">Country</th>
-				<th field="email">Subscription ID</th>
-				<th field="email">Subscription Effective From Date</th>
-				<th field="email">Subscription Effective To Date</th>
-				<th field="email">Previous Subscription ID</th>
-				<th field="email">CCW Web Order ID</th>
-				<th field="email">Order End Complete Date</th>
-				<th field="email">Order Type</th>
-				<th field="email">Sell Type</th>
-				<th field="email">SKU ID</th>
-				<th field="email">SKU Description</th>
-				<th field="email">Extended Unit Price</th>
-				<th field="email">Currency</th>
-				<th field="email">Incremental Growth (IARR) Rebate Value</th>
-				<th field="email">Partner Total IG(IARR) Rebate Value</th>
-				<th field="email">Lifecycle Initial Subscription Value</th>
-				<th field="email">Lifecycle End Subscription Value</th>
-				<th field="email">Partner Total Lifecycle Rebate Value</th>
-				<th field="email">Incremental Growth(IARR) Accrual Value</th>
-				<th field="email">Partner Total IG(IARR) Accrual Value</th>
-				<th field="email">Lifecycle Accrual Initial Subscription Value</th>
-				<th field="email">Lifecycle Accrual End Subscription Value</th>
-				<th field="email">Partner Total Lifecycle Accrual Value</th>
-				<th field="email">Partner Total IG(IARR) True Up Value</th>
-				<th field="email">Parnter Total Lifecycle True Up Value</th>
+				<th field="pdbbegeoid">PDB¡¡BE GEO ID</th>
+				<th field="country">Country</th>
+				<th field="subId">Subscription ID</th>
+				<th field="subFromDate">Subscription Effective From Date</th>
+				<th field="subToDate">Subscription Effective To Date</th>
+				<th field="preSubId">Previous Subscription ID</th>
+				<th field="ccwId">CCW Web Order ID</th>
+				<th field="orderEndDate">Order End Complete Date</th>
+				<th field="orderType">Order Type</th>
+				<th field="sellType">Sell Type</th>
+				<th field="skuId">SKU ID</th>
+				<th field="skuDescr">SKU Description</th>
+				<th field="skuQuantity">SKU Quantity</th>
+				<th field="unitPrice">Uint Price</th>
+				<th field="skuQuantity">Extended Unit Price</th>
+				<th field="skuMrr">SKU MRR</th>
+				<th field="subMrr">SUBSCRIPTION MRR</th>
+				<th field="currency">Currency</th>
+				<th field="iarr">Incremental Growth (IARR) Rebate Value</th>
+				<th field="partnerIarr">Partner Total IG(IARR) Rebate Value</th>
+				<th field="lcInitial">Lifecycle Initial Subscription Value</th>
+				<th field="lcEnd">Lifecycle End Subscription Value</th>
+				<th field="partnerLcRebate">Partner Total Lifecycle Rebate Value</th>
+				<th field="iarrAccrual">Incremental Growth(IARR) Accrual Value</th>
+				<th field="partnerIarrAcc">Partner Total IG(IARR) Accrual Value</th>
+				<th field="lcAccInitial">Lifecycle Accrual Initial Subscription Value</th>
+				<th field="lcAccEnd">Lifecycle Accrual End Subscription Value</th>
+				<th field="partnerTotalAcc">Partner Total Lifecycle Accrual Value</th>
+				<th field="partnerTotalIG">Partner Total IG(IARR) True Up Value</th>
+				<th field="partnerTotalTrueUp">Parnter Total Lifecycle True Up Value</th>
             </tr>
         </thead>
     </table>
     
     
-    <s:debug></s:debug> 
+
     <style type="text/css">
         #fm{
             margin:0;

@@ -11,7 +11,7 @@ import org.springframework.stereotype.Controller;
 
 import net.sf.json.JSONArray;
 
-import com.cisco.model.Filter;
+import com.cisco.dto.Filter;
 import com.cisco.service.PartnerIncentiveFilterService;
 import com.opensymphony.xwork2.ActionSupport;
 

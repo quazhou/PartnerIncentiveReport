@@ -195,6 +195,14 @@
 		<version>1.4</version>
 	</dependency>
 	
+	<!-- ojdbc driver -->
+	<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc</artifactId>
+			<version>14.0</version>
+	</dependency>
+	
+	
 	<!--add xls file-->
 	<dependency>
 		<groupId>org.apache.poi</groupId>

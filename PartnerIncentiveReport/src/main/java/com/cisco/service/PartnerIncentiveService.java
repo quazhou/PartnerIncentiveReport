@@ -11,15 +11,30 @@ import java.util.ArrayList;
 import java.sql.Date;
 import java.util.List;
 
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Service;
 
 import com.cisco.util.DB;
 
+import com.cisco.dao.impl.PartnerResultDaoImpl;
 import com.cisco.dto.Form;
 import com.cisco.model.*;
 @Service("partner_incentive_service")
 public class PartnerIncentiveService {
 	
+	private PartnerResultDaoImpl partnerResultDaoImpl;
+	
+	
+	public PartnerResultDaoImpl getPartnerResultDaoImpl() {
+		return partnerResultDaoImpl;
+	}
+	
+	@Resource(name="partnerResultDaoImpl")
+	public void setPartnerResultDaoImpl(PartnerResultDaoImpl partnerResultDaoImpl) {
+		this.partnerResultDaoImpl = partnerResultDaoImpl;
+	}
+
 	public List<PartnerResult> load() throws SQLException{
 		ArrayList<PartnerResult> al=new ArrayList<PartnerResult>();
 		Connection conn=DB.getConn();
@@ -50,7 +65,9 @@ public class PartnerIncentiveService {
 	}
 	
 	public List<PartnerResult> load(Form form) throws Exception{
-		ArrayList<PartnerResult> al=new ArrayList<PartnerResult>();
+		List<PartnerResult> results=partnerResultDaoImpl.getPartnerResult(form);
+		return results;
+		/*ArrayList<PartnerResult> al=new ArrayList<PartnerResult>();
 		Connection conn=DB.getConn();
 		String sql=getSQL(form);
 		PreparedStatement ps=DB.getstat(conn, sql);
@@ -79,7 +96,7 @@ public class PartnerIncentiveService {
 		DB.close(rs);
 		DB.close(ps);
 		DB.close(conn);
-		return al;
+		return al;*/
 	}
 	
 	public String getSQL(Form form){

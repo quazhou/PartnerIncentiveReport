@@ -16,7 +16,7 @@ public class FormTest {
 	public void test() throws Exception {
 		Form form=new Form();
 		System.out.println(form.getClawbackPeriod());
-		form.setYear("2014");
+		form.setYear(2014);
 		form.setQuarter("Q1");
 		Field[] field = form.getClass().getDeclaredFields();        //获取实体类的所有属性，返回Field数组  
 		StringBuffer sb=new StringBuffer("select * from partner_incentive_report");

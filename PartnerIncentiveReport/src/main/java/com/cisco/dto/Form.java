@@ -2,8 +2,8 @@ package com.cisco.dto;
 
 public class Form {
 	
-	private String quarter;
-	private String year;
+	private String quarter="Q4";
+	private Integer year=2014;
 	private Integer clawbackPeriod=90;
 	private Integer iarrRebateTermMultiplier=12;
 	private Double iarrRebatePercentage=0.25;
@@ -11,6 +11,7 @@ public class Form {
 	private Double lifeRebatePercentageThreshold=0.9;
 	private Integer lifeRebateTermMultiplier=6;
 	private Double lifeRebatePercentage=0.07;
+
 	public Integer getClawbackPeriod() {
 		return clawbackPeriod;
 	}
@@ -35,7 +36,7 @@ public class Form {
 	public String getQuarter() {
 		return quarter;
 	}
-	public String getYear() {
+	public Integer getYear() {
 		return year;
 	}
 	public void setClawbackPeriod(int clawbackPeriod) {
@@ -67,7 +68,7 @@ public class Form {
 	public void setQuarter(String quarter) {
 		this.quarter = quarter;
 	}
-	public void setYear(String year) {
+	public void setYear(Integer year) {
 		this.year = year;
 	}
 }
