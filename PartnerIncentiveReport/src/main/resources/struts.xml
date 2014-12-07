@@ -27,7 +27,7 @@
        </action>
    		
        <action name="firstaction" class="firstaction">
-       		<result>/table.jsp</result>
+       		<result>/datagrid1.jsp</result>
        </action>
        <action name="partner_incentive">
        		<result>/report.jsp</result>
@@ -53,7 +53,7 @@
     	
     	 <action name="partner_incentive" class="partner_incentive" method="load">
        		<result name="load" type="json">
-       			<param name="root">rows</param>
+       			<param name="root">dataRows</param>
        		</result>
          </action>
          

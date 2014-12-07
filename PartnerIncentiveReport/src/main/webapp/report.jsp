@@ -12,6 +12,7 @@
     <link rel="stylesheet" type="text/css" href="http://www.jeasyui.com/easyui/demo/demo.css">
     <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.min.js"></script>
     <script type="text/javascript" src="http://www.jeasyui.com/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="http://www.jeasyui.com/easyui/datagrid-scrollview.js"></script>
     
     <script type="text/javascript">
 		function savereg(){
@@ -105,9 +106,15 @@
 	
 	<br/>
     
-    <table id="dg" title="Partner Incentive Report" class="easyui-datagrid" style="width:5800px;height:250px"
+    <!-- <table id="dg" title="Partner Incentive Report" class="easyui-datagrid" style="width:5800px;height:250px"
             url="<%=path %>/data/partner_incentive!load" 
-            fitColumns="true" singleSelect="true" method="get" view="scrollview">
+            fitColumns="true" singleSelect="true" method="get" view="scrollview" pageSize="50" rownumbers="true">
+     -->
+     <table id="dg" class="easyui-datagrid" style="width:5800px;height:250px"
+			title="Partner Incentive Report"
+			data-options="view:scrollview,rownumbers:true,singleSelect:true,
+				url:'<%=path %>/data/partner_incentive!load',autoRowHeight:false,pageSize:50">
+	     
         <thead>
             <tr>
 				<th field="partnerName" >Partner Name</th>

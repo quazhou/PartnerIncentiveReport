@@ -8,6 +8,7 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 
 import org.apache.struts2.interceptor.RequestAware;
 import org.springframework.context.annotation.Scope;
@@ -17,6 +18,7 @@ import com.opensymphony.xwork2.ActionSupport;
 import com.cisco.service.PartnerIncentiveService;
 import com.cisco.dto.Form;
 import com.cisco.model.PartnerResult;
+import com.cisco.dto.DataGridModel;
 
 @Controller("partner_incentive")
 @Scope("prototype")
@@ -35,7 +37,8 @@ public class PartnerIncentiveAction extends ActionSupport{
 
 
 	//esayui grid需要的是json对象，而不是json串，故需要使用JSONArray对其进行封装
-	private JSONArray rows;
+	//private JSONArray dataRows;
+	private JSONObject dataRows;
 	
 	private String filters; 
 
@@ -54,8 +57,8 @@ public class PartnerIncentiveAction extends ActionSupport{
 	
 	
 
-	public JSONArray getRows() {
-		return rows;
+	public JSONObject getDataRows() {
+		return dataRows;
 	}
 
 	public String load() throws Exception{
@@ -69,8 +72,12 @@ public class PartnerIncentiveAction extends ActionSupport{
 			form=new Form();
 		}
 		partnerResult=pis.load(form);
-		rows=JSONArray.fromObject(partnerResult);
-		System.out.println(rows);
+		DataGridModel dgm=new DataGridModel();
+		dgm.setRows(partnerResult);
+		dgm.setTotal(3026);
+		dataRows=JSONObject.fromObject(dgm);
+		//dataRows=JSONArray.fromObject(partnerResult);
+		//System.out.println(rows);
 		//System.out.println(quarter);
 		return "load";
 	}
@@ -92,8 +99,8 @@ public class PartnerIncentiveAction extends ActionSupport{
 	}
 	
 	
-	public void setRows(JSONArray rows) {
-		this.rows = rows;
+	public void setDataRows(JSONObject rows) {
+		this.dataRows = rows;
 	}
 	
 	

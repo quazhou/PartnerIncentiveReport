@@ -11,7 +11,9 @@ public class Form {
 	private Double lifeRebatePercentageThreshold=0.9;
 	private Integer lifeRebateTermMultiplier=6;
 	private Double lifeRebatePercentage=0.07;
-
+	private Integer page=1;
+	private Integer rows=50;
+	
 	public Integer getClawbackPeriod() {
 		return clawbackPeriod;
 	}
@@ -24,6 +26,7 @@ public class Form {
 	public Integer getIarrRebateTermMultiplier() {
 		return iarrRebateTermMultiplier;
 	}
+
 	public Double getLifeRebatePercentage() {
 		return lifeRebatePercentage;
 	}
@@ -33,8 +36,14 @@ public class Form {
 	public Integer getLifeRebateTermMultiplier() {
 		return lifeRebateTermMultiplier;
 	}
+	public Integer getPage() {
+		return page;
+	}
 	public String getQuarter() {
 		return quarter;
+	}
+	public Integer getRows() {
+		return rows;
 	}
 	public Integer getYear() {
 		return year;
@@ -51,13 +60,13 @@ public class Form {
 	public void setIarrRebatePercentage(Double iarrRebatePercentage) {
 		this.iarrRebatePercentage = iarrRebatePercentage;
 	}
-	
 	public void setIarrRebateTermMultiplier(Integer iarrRebateTermMultiplier) {
 		this.iarrRebateTermMultiplier = iarrRebateTermMultiplier;
 	}
 	public void setLifeRebatePercentage(Double lifeRebatePercentage) {
 		this.lifeRebatePercentage = lifeRebatePercentage;
 	}
+	
 	public void setLifeRebatePercentageThreshold(
 			Double lifeRebatePercentageThreshold) {
 		this.lifeRebatePercentageThreshold = lifeRebatePercentageThreshold;
@@ -65,8 +74,14 @@ public class Form {
 	public void setLifeRebateTermMultiplier(Integer lifeRebateTermMultiplier) {
 		this.lifeRebateTermMultiplier = lifeRebateTermMultiplier;
 	}
+	public void setPage(Integer page) {
+		this.page = page;
+	}
 	public void setQuarter(String quarter) {
 		this.quarter = quarter;
+	}
+	public void setRows(Integer rows) {
+		this.rows = rows;
 	}
 	public void setYear(Integer year) {
 		this.year = year;
